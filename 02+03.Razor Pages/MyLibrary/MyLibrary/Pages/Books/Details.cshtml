@@ -1,0 +1,39 @@
+﻿@page "{id:int}"
+@model MyLibrary.Pages.Books.DetailsModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<br />
+<div class="form-group row ">   
+    <div class="col-sm-3">
+        <img src="@Model.BookDetails.ImageUrl" alt="@Model.BookDetails.Title" />
+    </div>
+    <div class="col-sm-9">
+        <div class="col-sm col-sm-offset-5">
+            <h3>@Model.BookDetails.Title</h3>
+            <h6>by @Model.BookDetails.Author</h6>
+            @Model.BookDetails.Description
+            <br />
+            <strong>Status: </strong>@Model.BookDetails.Status
+            <br />
+            <br />
+
+            @{
+                if (Model.BookDetails.Status == "At home")
+                {
+                    <a class="btn btn-lg btn-warning" asp-page="/Books/Borrow" asp-route-id="@Model.BookDetails.Id">Borrow this book</a>
+                }
+                else if (Model.BookDetails.Status == "Borrowed")
+                {
+                    <a class="btn btn-lg btn-warning" asp-page="/Books/Return" asp-route-id="@Model.BookDetails.Id">Return this book</a>
+                }
+            }
+
+            <br />
+            <br />
+            <a class="btn btn-sm btn-success" asp-page="/Books/Status" asp-route-id="@Model.BookDetails.Id">Show History</a>
+        </div>       
+    </div>
+</div>
+

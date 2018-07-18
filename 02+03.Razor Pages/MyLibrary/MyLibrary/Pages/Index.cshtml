@@ -1,0 +1,37 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<h1>My Library</h1>
+@*<a asp-page-handler="AddNewBook" class="btn-success">Add new book</a>*@
+<form action="/Books/Add" method="get">
+    <input class="btn-success" type="submit"  value="Add new book" />
+</form>
+
+<table class="col-lg-12 table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var book in Model.AllBooks)
+            {
+        <tr>
+            @*<td><a href="/Books/Details?id=@book.Id">@book.Title</a> </td>*@
+            <td><a asp-page="/Books/Details" asp-route-id="@book.Id">@book.Title</a> </td>
+           
+            <td><a asp-page="/Authors/Details" asp-route-id="@book.AuthorId">@book.Author</a> </td>
+            <td>@book.Status</td>
+        </tr>
+            }
+        }
+    </tbody>
+</table>
+
+

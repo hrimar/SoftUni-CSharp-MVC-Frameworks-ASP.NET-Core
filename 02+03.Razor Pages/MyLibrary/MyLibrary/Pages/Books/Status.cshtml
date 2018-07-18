@@ -1,0 +1,39 @@
+﻿@page "{id:int}"
+@model MyLibrary.Pages.Books.StatusModel
+@{
+    ViewData["Title"] = "Status";
+}
+
+<br />
+<br />
+<h2>Status for book: @Model.BookTitle</h2>
+
+@{ if (Model.BorowedBooks.Count==0)
+    {
+        <p>This book does not been borrowed at all.</p>
+    }
+    else
+    {
+        <table class="col-lg-12 table table-striped">
+            <thead>
+                <tr>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach (var item in Model.BorowedBooks)
+                    {
+                        <tr>
+                            <td>@item.StartDate.ToShortDateString()</td>
+                            <td>@item.EndDate</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+
+    }
+}
+

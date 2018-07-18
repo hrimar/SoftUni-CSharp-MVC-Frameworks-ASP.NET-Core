@@ -1,0 +1,23 @@
+﻿@using FDMC_MVC.App.Models.ViewModels;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<h1>Fluffy Duffy Munchkin Cats</h1>
+
+@model IEnumerable<CatConciseViewModel>
+@foreach (var cat in Model)
+{
+    <ul>
+        @*<li> <a href="/cats/details/@cat.Id">@cat.Name</a></li> or*@
+        <li> <a asp-controller="Cats" asp-action="Details" asp-route-id="@cat.Id">@cat.Name</a></li>
+    </ul>
+}
+
+<form action="/cats/add" method="get">
+    <input type="submit" value="Add Cat" />
+</form>                                             @*бутон*@
+@*<a asp-controller="Cats" asp-action="Add">Add Cat</a>  *@     @*линк*@
+

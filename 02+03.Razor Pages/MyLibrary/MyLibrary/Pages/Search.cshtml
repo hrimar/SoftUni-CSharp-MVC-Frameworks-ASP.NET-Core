@@ -1,0 +1,33 @@
+﻿@page "{name?}"
+@model MyLibrary.Pages.SearchModel
+@{
+    ViewData["Title"] = "Search";
+}
+
+<h2>Search results: @Model.SearchTerm</h2>
+
+<ul>
+    @{
+        if (@Model.Authors != null)
+        {
+            foreach (var author in Model.Authors)
+            {
+                @*<li><a asp-page="/Authors/Details" asp-route-id="author.Id">@author.Name </a> (author)</li>*@
+                @*<li><a href="/Authors/Details/author.Id">@author.Name </a> (author)</li>*@
+                string url = Url.Page($"/Authors/Details", new { id = author.Id });
+                <li><a href="@url">@Html.Raw(author.Name) </a> (author)</li>
+            }
+        }
+
+        if (@Model.Books != null)
+        {
+            foreach (var book in Model.Books)
+            {
+                @*<li><a asp-page="/Books/Details" asp-route-id="book.Id">@book.Title </a> (book)</li>*@
+                string url = Url.Page($"/Books/Details", new { id = book.Id });
+                <li><a href="@url">@Html.Raw(book.Title) </a> (book)</li>
+            }
+        }
+    }
+</ul>
+

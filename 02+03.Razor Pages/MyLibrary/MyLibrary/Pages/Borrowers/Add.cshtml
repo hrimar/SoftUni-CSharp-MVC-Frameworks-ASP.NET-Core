@@ -1,0 +1,55 @@
+﻿@page
+@model MyLibrary.Pages.Borrowers.AddModel
+@{
+    ViewData["Title"] = "Add";
+}
+
+<br />
+<h2>Add a borrower</h2>
+<br />
+
+<form method="post">
+    <div class="form-group row">
+        <label asp-for="Name" @*for="name" *@ class="col-sm-2 col-sm-offset-1 col-form-label"></label>
+        <div class="col-sm-10">
+            <input asp-for="Name" type="text" class="form-control" @*id="name" *@ placeholder="Name">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="Address" *@ class="col-sm-2 col-sm-offset-1 col-form-label">@*Address*@</label>
+        <div class="col-sm-10">
+            <textarea asp-for="Address" type="text" class="form-control" placeholder="Address"></textarea>
+        </div>
+    </div>
+   
+    <div class="form-group row col-sm-4 offset-2">
+
+        <input @*asp-page-handler="AddBorrower"*@ type="submit" value="Add borrower" data-toggle="modal" data-target="#exampleModal" class="btn btn-success" />
+
+       
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">The borrower succesfully added in the database!</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                   
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        @*<button type="button" class="btn btn-primary">Save changes</button>*@
+                        <input asp-page-handler="AddBorrower"  type="submit" value="Save changes"  class="btn btn-success" />
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="/" class="btn btn-outline-dark offset-2">Cancel</a>
+    </div>
+</form>
+

@@ -1,0 +1,29 @@
+﻿@using FDMC_MVC.App.Models.BindingModels;
+
+@model CreatingCatBindingModel 
+
+@{
+    ViewData["Title"] = "Add Cats";
+}
+
+<h2>Add Cat</h2> 
+
+<form action="/cats/add" method="post">
+    <p>
+        <label asp-for="Name"></label>
+        <input type="text" name="Name" />
+    </p>
+    <p>
+        <label asp-for="Age"></label>
+        <input type="number" name="Age" />
+    </p>
+    <p>
+        <label asp-for="Breed"></label>
+        <input type="text" name="Breed" />
+    </p>
+    <p>
+        <label asp-for="ImageUrl">Picture</label>
+        <input type="text" name="ImageUrl" />
+    </p>
+    <input type="submit" value="Add Cat" />
+</form>

@@ -1,0 +1,14 @@
+﻿@using FDMC_MVC.App.Models.ViewModels;
+
+@model CatDetailsViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Car page</h1>
+
+<h2>@Model.Name</h2>
+<img src="@Model.ImageUrl" alt="Picture of @Model.Name" style="max-width: 300px" /><br />
+<strong>Age: @Model.Age</strong><br />
+<strong>Breed: @Model.Breed</strong><br />

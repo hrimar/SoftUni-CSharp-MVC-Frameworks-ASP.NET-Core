@@ -1,0 +1,24 @@
+﻿@page "{id:int}"
+@model MyLibrary.Pages.Authors.DetailsModel
+
+@*@inject MyLibrary.Data.LibraryDbContext context
+@{ 
+    context.Books.Find(this.RouteData.Values["id"]); - BUT NOT SO GOOD
+}*@
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>The Books of this author:</h2>
+<br />
+<h3>@Model.AuthorDetails.Name</h3>
+
+@{
+    foreach (var book in Model.AuthorDetails.Books)
+    {
+<ul>
+    <li><a asp-page="/Books/Details" asp-route-id="@book.Id">@book.Title</a> (@book.Status) </li>       
+</ul>
+    }
+}
