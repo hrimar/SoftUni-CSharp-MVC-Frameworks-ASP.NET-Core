@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MyLibrary.Models
+﻿namespace MyLibrary.Models
 {
-  public  class Borrower
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+
+    public  class Borrower
     {
         public Borrower()
         {
@@ -12,9 +11,13 @@ namespace MyLibrary.Models
         }
 
         public int Id { get; set; }
-
+        
+        [Required]
+        [MinLength(3)]
         public string Name { get; set; }
 
+        [Required]
+        [MinLength(5)]
         public string  Address { get; set; }
 
         public List<BorrowerBook> BorrowedBooks { get; set; }

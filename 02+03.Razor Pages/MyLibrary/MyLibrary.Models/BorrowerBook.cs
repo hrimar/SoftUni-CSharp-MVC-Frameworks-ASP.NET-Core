@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MyLibrary.Models
+﻿namespace MyLibrary.Models
 {
-  public  class BorrowerBook
+    using System;
+
+    public  class BorrowerBook
     {
         public int BookId { get; set; }
         public Book Book { get; set; }

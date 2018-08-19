@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace MyLibrary.Models
+﻿namespace MyLibrary.Models
 {
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+
     public class Book
     {
         public Book()
@@ -12,6 +12,9 @@ namespace MyLibrary.Models
 
         public int Id { get; set; }
 
+
+        [Required]
+        [MinLength(3)]
         public string Title { get; set; }
 
         public string  Description { get; set; }

@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
-
-namespace MyLibrary.Models
+﻿namespace MyLibrary.Models
 {
-  public  class Author
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+
+    public  class Author
     {
         public Author()
         {
@@ -11,6 +12,8 @@ namespace MyLibrary.Models
 
         public int Id { get; set; }
 
+        [Required]
+        [MinLength(3)]
         public string Name { get; set; }
 
         public List<Book> Books { get; set; }

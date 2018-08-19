@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using MyLibrary.Data;
-using MyLibrary.Models;
-
-namespace MyLibrary.Pages.Books
+﻿namespace MyLibrary.Pages.Books
 {
+
+    using System.ComponentModel.DataAnnotations;
+    using System.Linq;
+    using Microsoft.AspNetCore.Mvc;
+    using MyLibrary.Data;
+    using MyLibrary.Models;
+
     public class AddModel : BaseModelController
     {
         public AddModel(LibraryDbContext context)

@@ -1,13 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using MyLibrary.Data;
-using MyLibrary.Models;
-using MyLibrary.Models.ViewModels;
-using System.Linq;
-
-namespace MyLibrary.Pages.Books
+﻿namespace MyLibrary.Pages.Books
 {
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.EntityFrameworkCore;
+    using MyLibrary.Data;
+    using MyLibrary.Models.ViewModels;
+    using System.Linq;
+
     public class DetailsModel : BaseModelController
     {
         public DetailsModel(LibraryDbContext context)

@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using MyLibrary.Data;
-using MyLibrary.Models;
-using MyLibrary.Models.ViewModels;
-
-namespace MyLibrary.Pages.Books
+﻿namespace MyLibrary.Pages.Books
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using MyLibrary.Data;
+    using MyLibrary.Models.ViewModels;
+
     public class StatusModel : BaseModelController
     {
         public StatusModel(LibraryDbContext context)
