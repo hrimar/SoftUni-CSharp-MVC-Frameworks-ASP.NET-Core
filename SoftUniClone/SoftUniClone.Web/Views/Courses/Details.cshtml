@@ -1,0 +1,38 @@
+﻿@model CourseInstanceViewModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<br /><br />
+@{
+    if (this.Context.User.Identity.IsAuthenticated)
+    {
+        <div class="text-center">
+            <a asp-area="Identity" asp-controller="CourseInstances" asp-action="Enroll" asp-route-id="@Model.Id"
+               class="btn-lg btn-success">Enroll</a>
+        </div>
+    }
+}
+
+
+
+<h2 class="text-center">Details for course instance: @Model.Name</h2>
+<br />
+<div class="text-center">
+    <br />
+    <div><strong>Course Instance Name:  @Model.Name </strong></div>
+    <br />
+    <div>Description: @Model.Description</>    </div>
+    <br />
+    <div>Course start date: @Model.StartDate</div>
+    <br />
+    <div>Course end date:@Model.EndDate</>  </div>
+    <br />
+    @*<div>Course end date:@Model.Lecturer</>  </div>*@
+</div>
+
+<br /><br />
+<div class="text-center">
+    <a asp-area="Identity" asp-controller="CourseInstances" asp-action="Details" asp-route-id="@Model.Id"
+       class="btn-lg btn-success">More details</a>
+</div>

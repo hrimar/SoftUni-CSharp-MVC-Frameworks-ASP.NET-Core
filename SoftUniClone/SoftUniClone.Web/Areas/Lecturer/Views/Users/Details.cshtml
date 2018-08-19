@@ -1,0 +1,23 @@
+﻿@model SoftUniClone.ServiceModels.Lecturer.ViewModels.CourseInstanceViewModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details for course instance: @Model.Name</h2>
+
+@*<a asp-area="Admin" asp-controller="CourseInstances" asp-action="Create" asp-route-id="@Model.Id"
+       class="btn btn-success">
+        <i class="glyphicon glyphicon-plus"></i> Create instance
+    </a>*@
+
+<br />
+<div class="text-center">
+    <br />
+    <div><strong>Course Instance Name:  @Model.Name </strong></div>
+    <br />
+    <div>Description: @Model.Description</>    </div>
+    <br />
+    <div>Course start date: @Model.StartDate</div>\
+    <br />
+    <div>Course end date:@Model.EndDate</>  </div>
+</div>

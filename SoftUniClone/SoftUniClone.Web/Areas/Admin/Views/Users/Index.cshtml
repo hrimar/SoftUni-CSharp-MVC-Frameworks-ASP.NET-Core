@@ -1,0 +1,28 @@
+﻿@model IEnumerable<SoftUniClone.ServiceModels.Admin.ViewModels.UserShortViewModel>
+@{
+    ViewData["Title"] = "All Users";
+}
+
+<h2>All Users</h2>
+
+@*@Html.DisplayForModel()*@
+
+@*@foreach (var user in Model)
+{
+    @user.Id @user.Email @user.UserName <br/>
+}*@
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(m => m.First().UserName)</th> @*Username*@
+            <th>@Html.DisplayNameFor(m => m.First().Email)</th>   @*Email*@
+            <th>Lecturer</th>
+            <th>Admin</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @Html.DisplayForModel()
+    </tbody>
+</table>

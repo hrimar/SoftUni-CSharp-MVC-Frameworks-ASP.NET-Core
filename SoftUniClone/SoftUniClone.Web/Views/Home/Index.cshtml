@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Welcom to SoftUni!</h1>
+<h6>We wish you a nice and enjoyable visit at our clone verion</h6>
+
+
+
+@*<cache expires-after="TimeSpan.FromSeconds(10)">@DateTime.Now</cache>*@
+
+
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery antiForgeriService
+@section Scripts {
+    <script>
+        $.ajax({
+            url: "https://localhost:44352/admin/courses/create",
+            method: "POST",
+            headers: { "RequestVerificationToken": "@(antiForgeriService.GetAndStoreTokens(Context).RequestToken)"},
+            data: { name: "AJAX name", slug: "AJAX slug" },
+            success: data => console.log(data),
+            error: err => console.log("error", err)
+        });
+    </script>
+}

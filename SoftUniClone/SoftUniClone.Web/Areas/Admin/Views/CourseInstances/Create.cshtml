@@ -1,0 +1,98 @@
+﻿@model SoftUniClone.ServiceModels.Admin.BindingModels.InstancesCreationBindingModel
+@{
+    ViewData["Title"] = "Create instance";
+}
+
+@{
+    var lecturers = ViewData["Lecturers"] as IEnumerable<LecturerShortViewModel>;
+    IEnumerable<SelectListItem> lecturersSelectList = null;
+    if (lecturers != null)
+    {
+        lecturersSelectList = lecturers.Select(l => new SelectListItem() { Text = l.Name, Value = l.Id });
+    }
+}
+
+<h2>Create instance for course: @ViewData["course"]</h2>
+
+<form asp-area="Admin" asp-controller="CourseInstances" asp-action="Create" @*asp-route-id="@ViewData[" id"]"*@ method="post" class="form-horizontal">
+    <input type="hidden" asp-for="CourseId" />
+
+    @Html.FormGroupFor(model => model.Name)
+    @Html.FormGroupFor(model => model.Slug)
+    @Html.FormGroupFor(model => model.Description)
+    @*@Html.FormGroupFor(model => model.LecurerId)*@
+    @*@Html.DropDownListFor(model => model.LecurerId, lecturersSelectList)*@
+
+    <div class="form-group row">
+        <label asp-for="LecurerId" class="col-sm-2"> </label>
+        <div class="col-sm-10">
+            <select asp-for="LecurerId" asp-items="lecturersSelectList" class="form-control"></select>
+            <span asp-validation-for="LecurerId" class="text-danger"></span>
+        </div>
+    </div>
+
+ 
+    @Html.FormGroupFor(model => model.StartDate)
+    @Html.FormGroupFor(model => model.EndDate)
+    @*<div class="form-group row">
+            <label asp-for="Name" class="col-sm-2 col-form-label col-sm-push-1"></label>
+            <div class="col-sm-10">
+                <input asp-for="Name" class="form-control">
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Slug" class="col-sm-2 col-form-label col-sm-push-1"></label>
+            <div class="col-sm-10">
+                <input asp-for="Slug" class="form-control">
+                <span asp-validation-for="Slug" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="Description" class="col-sm-2 col-form-label col-sm-push-1"></label>
+            <div class="col-sm-10">
+                <input asp-for="Description" class="form-control">
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="LecurerId" class="col-sm-2 col-form-label col-sm-push-1"></label>
+            <div class="col-sm-10">
+                <input asp-for="LecurerId" class="form-control">
+                <span asp-validation-for="LecurerId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="StartDate" class="col-sm-2 col-form-label col-sm-push-1">Start Date</label>
+            <div class="col-sm-10">
+                <input asp-for="StartDate" class="form-control">
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label asp-for="EndDate" class="col-sm-2 col-form-label col-sm-push-1">End Date</label>
+            <div class="col-sm-10">
+                <input asp-for="EndDate" class="form-control">
+                <span asp-validation-for="EndDate" class="text-danger"></span>
+            </div>
+        </div>*@
+
+    <div class="form-group row">
+        <div class="col-sm-10 col-sm-push-2">
+            @*<button type="submit" class="btn btn-primary">Sign in</button>*@
+            <input type="submit" value="Create" class="btn btn-success" />
+            <a asp-area="Admin" asp-controller="Courses" asp-action="Index" class="btn btn-default">Cancel</a>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script src="~/js/create-slug.js"></script>
+    <script>
+        $(function () {
+            createSlug("@Html.IdFor(model => model.Name)", "@Html.IdFor(model => model.Slug)")
+        });
+    </script>
+}

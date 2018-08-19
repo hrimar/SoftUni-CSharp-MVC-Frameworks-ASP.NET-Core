@@ -1,0 +1,34 @@
+﻿@model IEnumerable<SoftUniClone.ServiceModels.Lecturer.ViewModels.CourseShortViewModel>
+@{
+    ViewData["Title"] = "All Courses";
+}
+
+@*@using Microsoft.Extensions.Localization;
+    @using SoftUniClone.Web.Areas.Admin.Controllers
+    @inject IStringLocalizer localizer
+
+    <h2>@localizer["All Courses"]</h2>*@
+
+<h2>All Courses</h2>
+
+@*<a asp-area="Admin" asp-controller="Courses" asp-action="Create" class="btn btn-success">
+    <i class="glyphicon glyphicon-plus"></i> Create new course
+</a>*@
+
+@*<ul>
+        @foreach (var course in Model)
+        {
+            <li>
+                <a asp-action="Details" asp-route-id="@course.Id">@course.Name</a>
+            </li>
+        }
+    </ul>*@
+
+<ul>
+    @Html.DisplayForModel()
+</ul>
+
+
+
+
+@*https://localhost:44352/admin/courses?ui-culture=bg*@

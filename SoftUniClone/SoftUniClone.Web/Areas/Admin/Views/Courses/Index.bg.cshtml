@@ -1,0 +1,24 @@
+﻿@model IEnumerable<SoftUniClone.ServiceModels.Admin.ViewModels.CourseShortViewModel>
+@{
+    ViewData["Title"] = "All Courses";
+}
+
+
+<h2>Всички курсове</h2>
+
+<a asp-area="Admin" asp-controller="Courses" asp-action="Create" class="btn btn-success">
+    <i class="glyphicon glyphicon-plus"> </i> Създай нов курс
+</a>
+
+@*<ul>
+        @foreach (var course in Model)
+        {
+            <li>
+                <a asp-action="Details" asp-route-id="@course.Id">@course.Name</a>
+            </li>
+        }
+    </ul>*@
+
+<ul>
+    @Html.DisplayForModel()
+</ul>

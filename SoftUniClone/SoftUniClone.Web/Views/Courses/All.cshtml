@@ -1,0 +1,22 @@
+﻿@model IEnumerable<CourseShortViewModel>
+@{
+    ViewData["Title"] = "All Courses";
+}
+
+
+<h2>All Courses</h2>
+
+
+
+<ul>
+        @foreach (var course in @Model)
+        {
+            <li>
+                <a asp-action="Details" asp-route-id="@course.Id">@course.Name</a>
+            </li>
+        }
+    </ul>
+
+@*<ul>
+    @Html.DisplayForModel()
+</ul>*@
